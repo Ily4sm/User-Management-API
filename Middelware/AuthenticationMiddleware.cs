@@ -10,7 +10,7 @@ public class AuthenticationMiddleware
     public async Task InvokeAsync(HttpContext context)
     {
         var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-        if (token != "your_valid_token") // Simula validación de token
+        if (token != "your_valid_token")
         {
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync("{\"error\":\"Unauthorized\"}");
